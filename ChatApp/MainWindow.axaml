@@ -1,0 +1,33 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="ChatApp.MainWindow"
+        Title="ChatApp"
+		Width="800" Height="450"
+		Background="#303030">
+	<DockPanel>
+		<DockPanel DockPanel.Dock="Top">
+			<Label x:Name="TopLab" Content="If hosting, enter the port you want in the connection box, if not done the port will be 80" Foreground="Gray"/>
+		</DockPanel>
+		<DockPanel x:Name="SideStack" Background="#252525" Width="200" HorizontalAlignment="Left" DockPanel.Dock="Left">
+			<DockPanel DockPanel.Dock="Bottom">
+				<Button x:Name="HostBtn" Content="Host Chat" DockPanel.Dock="Bottom" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Background="#303030" Click="Host"/>
+				<Button x:Name="ConBtn" Content="Connect" DockPanel.Dock="Right" Background="Gray" Click="Connect"/>
+				<TextBox x:Name="ConBox"  Width="NaN" Watermark="ip:port"/>
+			</DockPanel>
+			<DockPanel x:Name="ClientStack"/>
+		</DockPanel>
+		<DockPanel x:Name="ChatStack">
+			<DockPanel DockPanel.Dock="Bottom">
+				<TextBlock x:Name="InfoBlock" Text="'/?' = request machine name" Foreground="Gray" DockPanel.Dock="Top" Margin="10,0,0,0"/>
+				<Button x:Name="SendBtn" Content="Send" DockPanel.Dock="Right" Background="Gray" Click="Send"/>
+				<TextBox x:Name="MessageBox"  Width="NaN" DockPanel.Dock="Bottom"/>
+			</DockPanel>
+			<ScrollViewer Margin="10,0,10,0" VerticalScrollBarVisibility="Auto">
+				<StackPanel x:Name="MessageStack"/>
+			</ScrollViewer>
+		</DockPanel>
+	</DockPanel>
+</Window>
